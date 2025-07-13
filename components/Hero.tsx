@@ -65,8 +65,8 @@ export default function Hero() {
               top: `${20 + Math.random() * 60}%`,
               width: `${3 + Math.random() * 4}px`,
               height: `${3 + Math.random() * 4}px`,
-              backgroundColor: `hsl(${45 + Math.random() * 30}, 100%, ${70 + Math.random() * 20}%)`,
-              boxShadow: `0 0 ${6 + Math.random() * 8}px hsl(${45 + Math.random() * 30}, 100%, ${70 + Math.random() * 20}%)`,
+              backgroundColor: `hsl(60, 100%, ${70 + Math.random() * 20}%)`,
+              boxShadow: `0 0 ${3 + Math.random() * 4}px hsl(60, 100%, ${70 + Math.random() * 20}%)`,
             }}
           />
         ))}

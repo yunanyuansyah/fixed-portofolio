@@ -3,6 +3,9 @@ import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import { sunnyEvening, tuskerGrotesk, neueMontreal } from './fonts'
 import Footer from '../components/Footer'
+import LoadingScreen from '../components/LoadingScreen'
+import { useState, useEffect } from 'react'
+import AppShell from '../components/AppShell'
 
 export const metadata: Metadata = {
   title: 'My Portfolio - Creative Developer',
@@ -23,40 +26,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sunnyEvening.variable} ${tuskerGrotesk.variable} ${neueMontreal.variable} scroll-smooth`}>
-      <body className={`${neueMontreal.className} antialiased`}>
-        <div className="particles">
-          {Array.from({ length: 50 }).map((_, i) => (
-            <div
-              key={i}
-              className="particle"
-              style={{
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 20}s`,
-                animationDuration: `${20 + Math.random() * 10}s`,
-              }}
-            />
-          ))}
-        </div>
-        {children}
-        <Footer />
-        <Toaster
-          position="top-right"
-          toastOptions={{
-            duration: 4000,
-            style: {
-              background: '#1e293b',
-              color: '#fff',
-              border: '1px solid rgba(0, 212, 255, 0.3)',
-            },
-          }}
-        />
+    <html lang="en">
+      <body className={`${sunnyEvening.variable} ${tuskerGrotesk.variable} ${neueMontreal.variable} font-body bg-dark-900 relative min-h-screen`}>
+        <AppShell>
+          {children}
+        </AppShell>
+        <Toaster position="top-right" />
       </body>
     </html>
   )

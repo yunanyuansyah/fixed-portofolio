@@ -8,6 +8,53 @@ export default function About() {
 
   return (
     <section id="about" className="section-padding relative overflow-hidden">
+      {/* Fireflies Background */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {Array.from({ length: 18 }).map((_, i) => {
+          const duration = 5 + Math.random() * 4;
+          const delay = Math.random() * 3;
+          const moveX = Math.random() * 120 - 60;
+          const moveY = Math.random() * 120 - 60;
+          const scale1 = 0.7 + Math.random() * 0.6;
+          const scale2 = 0.7 + Math.random() * 0.6;
+          return (
+            <div
+              key={i}
+              className="firefly"
+              style={{
+                position: 'absolute',
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                width: `${4 + Math.random() * 4}px`,
+                height: `${4 + Math.random() * 4}px`,
+                borderRadius: '50%',
+                background: '#ffe066',
+                opacity: 0.8 + Math.random() * 0.2,
+                boxShadow: '0 0 4px 1px #ffe066',
+                filter: 'drop-shadow(0 0 4px #ffe066)',
+                animation: `firefly-move-${i} ${duration}s ease-in-out ${delay}s infinite alternate`,
+                zIndex: 0,
+              }}
+            />
+          )
+        })}
+        <style>{`
+          ${Array.from({ length: 18 }).map((_, i) => {
+            const moveX = Math.random() * 120 - 60;
+            const moveY = Math.random() * 120 - 60;
+            const scale1 = 0.7 + Math.random() * 0.6;
+            const scale2 = 0.7 + Math.random() * 0.6;
+            return `
+              @keyframes firefly-move-${i} {
+                0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+                30% { transform: translate(${moveX / 2}px, ${moveY / 2}px) scale(${scale1}); opacity: 1; }
+                70% { transform: translate(${-moveX / 2}px, ${-moveY / 2}px) scale(${scale2}); opacity: 0.9; }
+                100% { transform: translate(${moveX}px, ${moveY}px) scale(1); opacity: 0.8; }
+              }
+            `;
+          }).join('')}
+        `}</style>
+      </div>
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-10" />
 
