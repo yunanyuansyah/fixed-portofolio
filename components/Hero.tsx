@@ -118,15 +118,31 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-8xl md:text-9xl lg:text-[10rem] font-tusker font-normal transition-all duration-300"
             style={{ color: 'rgb(255,238,218)' }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.textShadow = '0 0 30px rgba(255, 238, 218, 0.8), 0 0 60px rgba(255, 238, 218, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.textShadow = 'none';
-            }}
+            // Tambahkan animasi glow acak
+            whileHover={{}}
           >
-            HELLO ! , I'M A <br />
-            SOFTWARE & AI
+            <motion.span
+              initial={{ textShadow: '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)' }}
+              animate={{
+                textShadow: [
+                  '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)',
+                  '0 0 60px rgba(255,238,218,1), 0 0 120px rgba(255,238,218,0.7)',
+                  '0 0 20px rgba(255,238,218,0.4), 0 0 40px rgba(255,238,218,0.2)',
+                  '0 0 50px rgba(255,238,218,0.9), 0 0 100px rgba(255,238,218,0.5)',
+                  '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)'
+                ]
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 2 + Math.random() * 2,
+                repeatType: 'mirror',
+                ease: 'easeInOut',
+                times: [0, 0.2, 0.5, 0.8, 1]
+              }}
+            >
+              HELLO ! , I'M A <br />
+              SOFTWARE & AI
+            </motion.span>
           </motion.h1>
 
           {/* Animated Subtitle */}
@@ -136,25 +152,34 @@ export default function Hero() {
             transition={{ delay: 0.6 }}
             className="text-8xl md:text-9xl lg:text-[10rem] font-tusker font-normal mb-10 transition-all duration-300"
             style={{ color: 'rgb(255,238,218)' }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.textShadow = '0 0 30px rgba(255, 238, 218, 0.8), 0 0 60px rgba(255, 238, 218, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.textShadow = 'none';
-            }}
           >
-            <TypeAnimation
-              sequence={[
-                'ENGINEER',
-                2000,
-                'DEVELOPER',
-                2000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-              style={{ color: 'rgb(255,238,218)' }}
-            />
+            <motion.span
+              initial={{ textShadow: '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)' }}
+              animate={{
+                textShadow: [
+                  '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)',
+                  '0 0 60px rgba(255,238,218,1), 0 0 120px rgba(255,238,218,0.7)',
+                  '0 0 20px rgba(255,238,218,0.4), 0 0 40px rgba(255,238,218,0.2)',
+                  '0 0 50px rgba(255,238,218,0.9), 0 0 100px rgba(255,238,218,0.5)',
+                  '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)'
+                ]
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 2 + Math.random() * 2,
+                repeatType: 'mirror',
+                ease: 'easeInOut',
+                times: [0, 0.2, 0.5, 0.8, 1]
+              }}
+            >
+              <TypeAnimation
+                sequence={['ENGINEER', 2000, 'DEVELOPER', 2000]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                style={{ color: 'rgb(255,238,218)' }}
+              />
+            </motion.span>
           </motion.div>
 
           {/* Social Links */}
@@ -167,7 +192,6 @@ export default function Hero() {
             {[
               { icon: Github, href: '#', label: 'GitHub' },
               { icon: Linkedin, href: '#', label: 'LinkedIn' },
-              { icon: Twitter, href: '#', label: 'Twitter' },
             ].map((social, index) => (
               <motion.a
                 key={social.label}

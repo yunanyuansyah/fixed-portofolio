@@ -94,6 +94,103 @@ export default function About() {
             </ul>
           </motion.div>
         </div>
+
+        {/* Education & Experience Section */}
+        <div className="grid md:grid-cols-2 gap-10 mt-16">
+          {/* Education Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 1.0, duration: 0.8 }}
+            className="rounded-2xl  "
+          >
+            <h3 className="text-3xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
+              Education
+            </h3>
+            <div className="space-y-4 text-lg " style={{ color: 'rgb(255,238,218)' }}>
+              <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg">
+                <div className="font-bold text-xl mb-1">Electrical Engineering</div>
+                <div className="font-medium mb-1">Universitas Negeri Yogyakarta</div>
+                <div className="mb-2">2022 - Present</div>
+                <div className="font-medium">Learning on Control System, Automation Systems and Artificial Intelligence applications.</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Experience Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="rounded-2xl"
+          >
+            <h3 className="text-3xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
+              Experience
+            </h3>
+            <div className="space-y-4 text-lg" style={{ color: 'rgb(255,238,218)' }}>
+              {/* Freelance Web Developer */}
+              <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg">
+                <div className="font-bold text-xl mb-1">Freelance Web Developer</div>
+                <div className="font-medium mb-1">Self-Employed</div>
+                <div className="mb-2">2023 - Present</div>
+                <div className="font-medium">Building responsive web applications using modern technologies like React, Next.js, and Node.js.</div>
+              </div>
+              {/* AI Projects */}
+              <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg">
+                <div className="font-bold text-xl mb-1">Artificial Intelligence Projects</div>
+                <div className="font-medium mb-1">Personal Projects</div>
+                <div className="mb-2">2022 - Present</div>
+                <div className="font-medium">Developing AI models for computer vision and natural language processing applications.</div>
+              </div>
+              {/* Hardware & Software Engineer */}
+              <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg">
+                <div className="font-bold text-xl mb-1">Hardware & Software Engineer</div>
+                <div className="font-medium mb-1">Personal Projects</div>
+                <div className="mb-2">2022 - Present</div>
+                <div className="font-medium">Building hardware and software solutions for various projects.</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* My Values Section */}
+        <div className="mt-24">
+          <h2 className="text-center text-5xl font-tusker mb-12" style={{ color: 'rgb(255,238,218)' }}>
+            My Values
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Innovation */}
+            <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center">
+              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6">
+                <span className="text-4xl">💡</span>
+              </div>
+              <div className="font-bold text-2xl mb-2" style={{ color: 'rgb(255,238,218)' }}>Innovation</div>
+              <div className="text-lg font-medium" style={{ color: 'rgb(255,238,218)' }}>
+                Always exploring new technologies and approaches to solve complex problems creatively.
+              </div>
+            </div>
+            {/* Excellence */}
+            <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center">
+              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6">
+                <span className="text-4xl">🎯</span>
+              </div>
+              <div className="font-bold text-2xl mb-2" style={{ color: 'rgb(255,238,218)' }}>Excellence</div>
+              <div className="text-lg font-medium" style={{ color: 'rgb(255,238,218)' }}>
+                Committed to delivering high-quality, well-tested, and maintainable code in every project.
+              </div>
+            </div>
+            {/* Growth */}
+            <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center">
+              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6">
+                <span className="text-4xl">🚀</span>
+              </div>
+              <div className="font-bold text-2xl mb-2" style={{ color: 'rgb(255,238,218)' }}>Growth</div>
+              <div className="text-lg font-medium" style={{ color: 'rgb(255,238,218)' }}>
+                Continuously learning and improving skills to stay ahead in the rapidly evolving tech landscape.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

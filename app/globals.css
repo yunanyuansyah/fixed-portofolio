@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-dark-900 font-neue;
+    @apply font-neue;
     color: rgb(255, 238, 218);
     overflow-x: hidden;
   }
