@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import { sunnyEvening, tuskerGrotesk, neueMontreal } from './fonts'
+import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
   title: 'My Portfolio - Creative Developer',
@@ -44,6 +45,7 @@ export default function RootLayout({
           ))}
         </div>
         {children}
+        <Footer />
         <Toaster
           position="top-right"
           toastOptions={{
