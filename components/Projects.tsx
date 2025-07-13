@@ -122,7 +122,8 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className="text-xl text-gray-400 max-w-3xl mx-auto"
+            className="text-xl max-w-3xl mx-auto"
+            style={{ color: 'rgb(255,238,218)' }}
           >
             A showcase of my latest work, demonstrating creativity, technical skills, and problem-solving abilities
           </motion.p>
@@ -146,9 +147,10 @@ export default function Projects() {
               onClick={() => setActiveCategory(category.id)}
               className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeCategory === category.id
-                  ? 'bg-gradient-to-r from-neon-blue to-neon-purple text-white'
-                  : 'glass-effect text-gray-300 hover:text-neon-blue hover:neon-glow'
+                  ? 'bg-gradient-to-r from-neon-blue to-neon-purple'
+                  : 'glass-effect hover:neon-glow'
               }`}
+              style={{ color: 'rgb(255,238,218)' }}
             >
               <category.icon className="w-4 h-4" />
               <span>{category.name}</span>
@@ -188,7 +190,7 @@ export default function Projects() {
                   
                   {/* Featured Badge */}
                   {project.featured && (
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full text-xs font-bold text-white">
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full text-xs font-bold" style={{ color: 'rgb(255,238,218)' }}>
                       Featured
                     </div>
                   )}
@@ -201,7 +203,7 @@ export default function Projects() {
                       whileTap={{ scale: 0.9 }}
                       className="p-3 rounded-full glass-effect hover:neon-glow transition-all duration-300"
                     >
-                      <ExternalLink className="w-5 h-5 text-neon-blue" />
+                      <ExternalLink className="w-5 h-5" style={{ color: 'rgb(255,238,218)' }} />
                     </motion.a>
                     <motion.a
                       href={project.githubUrl}
@@ -209,17 +211,17 @@ export default function Projects() {
                       whileTap={{ scale: 0.9 }}
                       className="p-3 rounded-full glass-effect hover:neon-glow transition-all duration-300"
                     >
-                      <Github className="w-5 h-5 text-neon-blue" />
+                      <Github className="w-5 h-5" style={{ color: 'rgb(255,238,218)' }} />
                     </motion.a>
                   </div>
                 </div>
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:gradient-text transition-all duration-300">
+                  <h3 className="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300" style={{ color: 'rgb(255,238,218)' }}>
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                  <p className="text-sm mb-4 leading-relaxed" style={{ color: 'rgb(255,238,218)' }}>
                     {project.description}
                   </p>
 
@@ -228,7 +230,8 @@ export default function Projects() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-dark-700 text-neon-blue text-xs rounded-full font-mono"
+                        className="px-3 py-1 bg-dark-700 text-xs rounded-full font-mono"
+                style={{ color: 'rgb(255,238,218)' }}
                       >
                         {tech}
                       </span>
@@ -240,14 +243,16 @@ export default function Projects() {
                     <div className="flex space-x-3">
                       <a
                         href={project.liveUrl}
-                        className="flex items-center space-x-1 text-neon-blue hover:text-white transition-colors duration-300 text-sm"
+                        className="flex items-center space-x-1 transition-colors duration-300 text-sm"
+                        style={{ color: 'rgb(255,238,218)' }}
                       >
                         <Eye className="w-4 h-4" />
                         <span>Live Demo</span>
                       </a>
                       <a
                         href={project.githubUrl}
-                        className="flex items-center space-x-1 text-neon-blue hover:text-white transition-colors duration-300 text-sm"
+                        className="flex items-center space-x-1 transition-colors duration-300 text-sm"
+                        style={{ color: 'rgb(255,238,218)' }}
                       >
                         <Code className="w-4 h-4" />
                         <span>Code</span>
@@ -270,7 +275,11 @@ export default function Projects() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border-2 border-neon-blue text-neon-blue font-semibold rounded-full hover:bg-neon-blue hover:text-white transition-all duration-300"
+            className="px-8 py-4 border-2 font-semibold rounded-full transition-all duration-300"
+            style={{ 
+              borderColor: 'rgb(255,238,218)', 
+              color: 'rgb(255,238,218)' 
+            }}
           >
             View All Projects
           </motion.button>

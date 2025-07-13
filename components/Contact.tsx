@@ -96,7 +96,8 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className="text-xl text-gray-400 max-w-3xl mx-auto"
+            className="text-xl max-w-3xl mx-auto"
+            style={{ color: 'rgb(255,238,218)' }}
           >
             Ready to bring your ideas to life? Let's collaborate and create something amazing together
           </motion.p>
@@ -121,7 +122,7 @@ export default function Contact() {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.8 }}
                   >
-                    <label htmlFor="name" className="block text-gray-300 font-medium mb-2">
+                    <label htmlFor="name" className="block font-medium mb-2" style={{ color: 'rgb(255,238,218)' }}>
                       Name
                     </label>
                     <input
@@ -131,7 +132,8 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-dark-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
+                      className="w-full px-4 py-3 bg-dark-800 border border-gray-600 rounded-lg placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
+                      style={{ color: 'rgb(255,238,218)' }}
                       placeholder="Your name"
                     />
                   </motion.div>
@@ -141,7 +143,7 @@ export default function Contact() {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.9 }}
                   >
-                    <label htmlFor="email" className="block text-gray-300 font-medium mb-2">
+                    <label htmlFor="email" className="block font-medium mb-2" style={{ color: 'rgb(255,238,218)' }}>
                       Email
                     </label>
                     <input
@@ -151,7 +153,8 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-dark-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
+                      className="w-full px-4 py-3 bg-dark-800 border border-gray-600 rounded-lg placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
+                      style={{ color: 'rgb(255,238,218)' }}
                       placeholder="your@email.com"
                     />
                   </motion.div>
@@ -162,7 +165,7 @@ export default function Contact() {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 1 }}
                 >
-                  <label htmlFor="subject" className="block text-gray-300 font-medium mb-2">
+                  <label htmlFor="subject" className="block font-medium mb-2" style={{ color: 'rgb(255,238,218)' }}>
                     Subject
                   </label>
                   <input
@@ -172,7 +175,8 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-dark-800 border border-gray-600 rounded-lg placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
+                    style={{ color: 'rgb(255,238,218)' }}
                     placeholder="Project inquiry"
                   />
                 </motion.div>
@@ -182,7 +186,7 @@ export default function Contact() {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 1.1 }}
                 >
-                  <label htmlFor="message" className="block text-gray-300 font-medium mb-2">
+                  <label htmlFor="message" className="block font-medium mb-2" style={{ color: 'rgb(255,238,218)' }}>
                     Message
                   </label>
                   <textarea
@@ -192,7 +196,8 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-dark-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-dark-800 border border-gray-600 rounded-lg placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300 resize-none"
+                    style={{ color: 'rgb(255,238,218)' }}
                     placeholder="Tell me about your project..."
                   />
                 </motion.div>
@@ -205,7 +210,8 @@ export default function Contact() {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold rounded-lg hover:neon-glow transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                  className="w-full px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-purple font-semibold rounded-lg hover:neon-glow transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                  style={{ color: 'rgb(255,238,218)' }}
                 >
                   {isSubmitting ? (
                     <>
@@ -247,11 +253,11 @@ export default function Contact() {
                   className="flex items-center space-x-4 p-4 rounded-lg glass-effect hover:neon-glow transition-all duration-300"
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-lg flex items-center justify-center">
-                    <info.icon className="w-6 h-6 text-white" />
+                    <info.icon className="w-6 h-6" style={{ color: 'rgb(255,238,218)' }} />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">{info.title}</h4>
-                    <p className="text-gray-400">{info.value}</p>
+                    <h4 className="font-semibold" style={{ color: 'rgb(255,238,218)' }}>{info.title}</h4>
+                    <p style={{ color: 'rgb(255,238,218)' }}>{info.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -278,10 +284,20 @@ export default function Contact() {
                     transition={{ delay: 1.6 + index * 0.1 }}
                     whileHover={{ scale: 1.05, y: -5 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center space-x-3 p-4 rounded-lg glass-effect hover:neon-glow transition-all duration-300"
+                    className="flex items-center space-x-3 p-4 rounded-lg transition-all duration-300"
+                    style={{
+                      backgroundColor: 'rgb(255,238,218)',
+                      boxShadow: '0 0 0 rgba(255, 238, 218, 0)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 238, 218, 0.8)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '0 0 0 rgba(255, 238, 218, 0)';
+                    }}
                   >
-                    <social.icon className="w-6 h-6 text-neon-blue" />
-                    <span className="text-gray-300 font-medium">{social.label}</span>
+                    <social.icon className="w-6 h-6" style={{ color: '#0f172a' }} />
+                    <span className="font-medium" style={{ color: '#0f172a' }}>{social.label}</span>
                   </motion.a>
                 ))}
               </div>
@@ -298,7 +314,7 @@ export default function Contact() {
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
                 <span className="text-green-400 font-semibold">Available for new projects</span>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-sm" style={{ color: 'rgb(255,238,218)' }}>
                 I'm currently accepting new projects and collaborations. 
                 Let's discuss how we can work together to bring your vision to life.
               </p>

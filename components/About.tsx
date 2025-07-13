@@ -2,54 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Award, Code, Globe, Users, Zap, Target } from 'lucide-react'
-
-const stats = [
-  { icon: Code, value: '50+', label: 'Projects Completed' },
-  { icon: Users, value: '30+', label: 'Happy Clients' },
-  { icon: Award, value: '5+', label: 'Years Experience' },
-  { icon: Globe, value: '100%', label: 'Client Satisfaction' },
-]
-
-const timeline = [
-  {
-    year: '2023',
-    title: 'Senior Developer',
-    company: 'Tech Company',
-    description: 'Leading development teams and architecting scalable solutions.',
-  },
-  {
-    year: '2021',
-    title: 'Full Stack Developer',
-    company: 'Startup',
-    description: 'Built and maintained multiple web applications using modern technologies.',
-  },
-  {
-    year: '2019',
-    title: 'Frontend Developer',
-    company: 'Digital Agency',
-    description: 'Created responsive and interactive user interfaces.',
-  },
-  {
-    year: '2018',
-    title: 'Started Journey',
-    company: 'Self Taught',
-    description: 'Began learning web development and design fundamentals.',
-  },
-]
 
 export default function About() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
     <section id="about" className="section-padding relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-10" />
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-neon-purple/10 to-neon-pink/10 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
         {/* Section Header */}
@@ -58,138 +18,80 @@ export default function About() {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <motion.h2
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl font-tusker font-bold mb-6"
+            className="text-6xl md:text-7xl font-tusker font-normal mb-4"
+            style={{ color: 'rgb(255,238,218)' }}
           >
-            <span className="gradient-text">About Me</span>
+            About Me
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className="text-xl text-gray-400 max-w-3xl mx-auto"
+            className="text-2xl max-w-4xl mx-auto mb-2"
+            style={{ color: 'rgb(255,238,218)' }}
           >
-            A passionate creative developer with a love for innovation and cutting-edge technology
+            Passionate developer bridging the gap between electrical engineering and modern web technologies
           </motion.p>
+          <div className="w-32 sm:w-48 lg:w-64 h-1 bg-gradient-to-r from-transparent via-[rgb(255,238,218)] to-transparent mx-auto mt-6 sm:mt-8 animate-pulse"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Content */}
+        <div className="grid md:grid-cols-2 gap-10 items-start">
+          {/* Left Column - My Journey */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <div className="space-y-6">
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : {}}
-                transition={{ delay: 0.8 }}
-                className="text-lg text-gray-300 leading-relaxed"
-              >
-                I'm a creative developer who thrives on turning complex problems into simple, beautiful, and intuitive solutions. 
-                With over 5 years of experience in web development, I've had the privilege of working on diverse projects 
-                that have shaped my approach to creating digital experiences.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : {}}
-                transition={{ delay: 1 }}
-                className="text-lg text-gray-300 leading-relaxed"
-              >
-                My passion lies in pushing the boundaries of what's possible on the web, combining cutting-edge technologies 
-                with thoughtful design to create immersive experiences that leave lasting impressions.
-              </motion.p>
-
-              {/* Key Features */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : {}}
-                transition={{ delay: 1.2 }}
-                className="grid grid-cols-2 gap-4 mt-8"
-              >
-                {[
-                  { icon: Zap, text: 'Fast Performance' },
-                  { icon: Target, text: 'Goal Oriented' },
-                  { icon: Code, text: 'Clean Code' },
-                  { icon: Users, text: 'Team Player' },
-                ].map((feature, index) => (
-                  <motion.div
-                    key={feature.text}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: 1.4 + index * 0.1 }}
-                    className="flex items-center space-x-3 p-3 rounded-lg glass-effect"
-                  >
-                    <feature.icon className="w-5 h-5 text-neon-blue" />
-                    <span className="text-gray-300 font-medium">{feature.text}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
+            <h3 className="text-4xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
+              My Journey
+            </h3>
+            <div className="space-y-6 text-lg leading-relaxed" style={{ color: 'rgb(255,238,218)' }}>
+              <p>
+                As an Electrical Engineering student at Universitas Negeri Yogyakarta, I've discovered my true passion lies at the intersection of Artificial Intelligence and Hardware & Software Engineering. My journey began with a deep curiosity about how intelligent systems can bridge the gap between the digital and physical worlds.
+              </p>
+              <p>
+                I specialize in developing AI-powered solutions and creating innovative hardware-software integrations that not only solve complex problems but also create meaningful positive impact. My background in electrical engineering gives me a unique perspective on system design, control systems, and automation that I apply to both AI and full-stack development projects.
+              </p>
+              <p>
+                What drives me most is the belief that technology should serve humanity. Whether it's building AI models for computer vision, developing automation systems, or creating full-stack applications, I'm committed to solutions that make a real difference in people's lives and contribute to a better future.
+              </p>
             </div>
           </motion.div>
 
-          {/* Right Column - Stats */}
+          {/* Right Column - Quick Facts Card */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="space-y-8"
+            className="rounded-2xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg"
           >
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 1.2 + index * 0.1 }}
-                  className="text-center p-6 rounded-xl glass-effect hover:neon-glow transition-all duration-300"
-                >
-                  <stat.icon className="w-8 h-8 text-neon-blue mx-auto mb-3" />
-                  <div className="text-3xl font-bold gradient-text mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-400 text-sm">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Timeline */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 1.6 }}
-              className="space-y-6"
-            >
-              <h3 className="text-2xl font-bold gradient-text mb-6">Experience Timeline</h3>
-              <div className="space-y-4">
-                {timeline.map((item, index) => (
-                  <motion.div
-                    key={item.year}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 1.8 + index * 0.1 }}
-                    className="flex items-start space-x-4 p-4 rounded-lg glass-effect hover:neon-glow transition-all duration-300"
-                  >
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-neon-blue to-neon-purple rounded-lg flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">{item.year}</span>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-white mb-1">{item.title}</h4>
-                      <p className="text-neon-blue font-medium mb-2">{item.company}</p>
-                      <p className="text-gray-400 text-sm">{item.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+            <h4 className="text-2xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
+              Quick Facts
+            </h4>
+            <ul className="space-y-4 text-lg" style={{ color: 'rgb(255,238,218)' }}>
+              <li className="flex items-center gap-3">
+                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2" />
+                <span className="font-semibold">Electrical Engineering Student</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2" />
+                <span className="font-semibold">Hardware & Software Engineer</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2" />
+                <span className="font-semibold">Artificial Intelligence Engineer</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2" />
+                <span className="font-semibold">Control & Automation Systems Engineer</span>
+              </li>
+            </ul>
           </motion.div>
         </div>
       </div>

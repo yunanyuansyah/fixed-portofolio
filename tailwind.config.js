@@ -39,6 +39,9 @@ module.exports = {
           green: '#10b981',
           yellow: '#f59e0b',
         },
+        custom: {
+          cream: 'rgb(255,238,218)',
+        },
         border: '#334155', // tambahkan warna border
       },
       fontFamily: {

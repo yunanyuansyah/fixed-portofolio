@@ -103,7 +103,8 @@ export default function Skills() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className="text-xl text-gray-400 max-w-3xl mx-auto"
+            className="text-xl max-w-3xl mx-auto"
+            style={{ color: 'rgb(255,238,218)' }}
           >
             A comprehensive toolkit of technologies and methodologies I use to bring ideas to life
           </motion.p>
@@ -130,7 +131,7 @@ export default function Skills() {
                 className="text-center p-6 rounded-xl glass-effect hover:neon-glow transition-all duration-300"
               >
                 <tech.icon className={`w-12 h-12 mx-auto mb-3 ${tech.color}`} />
-                <div className="text-gray-300 font-medium">{tech.name}</div>
+                <div className="font-medium" style={{ color: 'rgb(255,238,218)' }}>{tech.name}</div>
               </motion.div>
             ))}
           </div>
@@ -148,7 +149,7 @@ export default function Skills() {
             >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-lg flex items-center justify-center">
-                  <category.icon className="w-6 h-6 text-white" />
+                  <category.icon className="w-6 h-6" style={{ color: 'rgb(255,238,218)' }} />
                 </div>
                 <h3 className="text-2xl font-bold gradient-text">
                   {category.title}
@@ -165,8 +166,8 @@ export default function Skills() {
                     className="space-y-2"
                   >
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-neon-blue font-mono text-sm">{skill.level}%</span>
+                                      <span className="font-medium" style={{ color: 'rgb(255,238,218)' }}>{skill.name}</span>
+                <span className="font-mono text-sm" style={{ color: 'rgb(255,238,218)' }}>{skill.level}%</span>
                     </div>
                     <div className="w-full bg-dark-700 rounded-full h-2 overflow-hidden">
                       <motion.div
@@ -217,7 +218,7 @@ export default function Skills() {
                 transition={{ delay: 2 + index * 0.05 }}
                 className="p-4 rounded-lg glass-effect text-center hover:neon-glow transition-all duration-300"
               >
-                <span className="text-gray-300 font-medium text-sm">{skill}</span>
+                <span className="font-medium text-sm" style={{ color: 'rgb(255,238,218)' }}>{skill}</span>
               </motion.div>
             ))}
           </div>
