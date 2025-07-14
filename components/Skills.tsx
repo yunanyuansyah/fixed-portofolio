@@ -103,7 +103,7 @@ export default function Skills() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-6xl md:text-7xl font-tusker font-normal mx-auto mb-6 sm:mb-8"
+            className="text-6xl md:text-7xl lg:text-8xl font-tusker font-normal mx-auto mb-6 sm:mb-8"
             style={{ color: 'rgb(255,238,218)' }}
           >
             Skills & Expertise
