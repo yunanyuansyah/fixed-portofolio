@@ -3,38 +3,38 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ExternalLink, Github, Eye, Code, Palette, Globe } from 'lucide-react'
+import { Github, Code, Palette, Globe } from 'lucide-react'
 import Image from 'next/image'
+import Fireflies from './Fireflies';
 
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A modern e-commerce platform built with Next.js, featuring real-time inventory, payment processing, and admin dashboard.',
-    image: '/images/projects/ecommerce.jpg', // Ganti dengan foto project Anda
-    category: 'web',
-    technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
+    title: 'Marketplace Platform',
+    description: 'A modern e-commerce platform built EJS, featuring real-time inventory, payment processing, and admin dashboard.',
+    image: '/images/projects/ecommerce.png',
+    category: 'Web Development',
+    technologies: ['EJS', 'Express', 'Tailwind CSS', 'MongoDB'],
     liveUrl: '#',
     githubUrl: '#',
     featured: true,
   },
   {
     id: 2,
-    title: 'AI Chat Application',
-    description: 'An intelligent chat application powered by OpenAI, featuring real-time messaging and AI-powered responses.',
-    image: '/images/projects/ai-chat.jpg', // Ganti dengan foto project Anda
-    category: 'ai',
-    technologies: ['React', 'Node.js', 'OpenAI API', 'Socket.io'],
+    title: 'Smart Face Recognition Door Lock System',
+    description: 'A face recognition door lock system built with Raspberry Pi and a Webcam',
+    image: '/images/projects/face-recognition.jpg',
+    category: 'Hardware',
+    technologies: ['Raspberry Pi', 'Webcam', 'Python', 'OpenCV' ,'Face Recognition', 'Firebase'],
     liveUrl: '#',
     githubUrl: '#',
-    featured: true,
   },
   {
     id: 3,
     title: 'Portfolio Website',
     description: 'A futuristic portfolio website with 3D animations, interactive elements, and modern design principles.',
-    image: '/images/projects/portfolio.jpg', // Ganti dengan foto project Anda
-    category: 'design',
+    image: '/images/projects/portfolio.jpg',
+    category: 'Design',
     technologies: ['Three.js', 'React', 'Framer Motion', 'GSAP'],
     liveUrl: '#',
     githubUrl: '#',
@@ -42,45 +42,23 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, team features, and progress tracking.',
-    image: '/images/projects/task-manager.jpg', // Ganti dengan foto project Anda
-    category: 'web',
-    technologies: ['Vue.js', 'Firebase', 'Vuex', 'Vuetify'],
+    title: 'AI Chat Application',
+    description: 'An intelligent chat application powered by OpenAI, featuring real-time messaging and AI-powered responses.',
+    image: '/images/projects/ai-chat.jpg',
+    category: 'AI/ML',
+    technologies: ['React', 'Node.js', 'OpenAI API', 'Socket.io'],
     liveUrl: '#',
     githubUrl: '#',
-    featured: false,
-  },
-  {
-    id: 5,
-    title: 'Weather Dashboard',
-    description: 'A beautiful weather dashboard with real-time data, interactive maps, and detailed forecasts.',
-    image: '/images/projects/weather.jpg', // Ganti dengan foto project Anda
-    category: 'web',
-    technologies: ['React', 'OpenWeather API', 'Chart.js', 'Leaflet'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: false,
-  },
-  {
-    id: 6,
-    title: 'NFT Marketplace',
-    description: 'A decentralized NFT marketplace built on Ethereum, featuring minting, trading, and wallet integration.',
-    image: '/images/projects/nft-marketplace.jpg', // Ganti dengan foto project Anda
-    category: 'blockchain',
-    technologies: ['Solidity', 'React', 'Web3.js', 'IPFS'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: false,
+    featured: true,
   },
 ]
 
 const categories = [
   { id: 'all', name: 'All Projects', icon: Globe },
-  { id: 'web', name: 'Web Apps', icon: Code },
-  { id: 'ai', name: 'AI/ML', icon: Palette },
-  { id: 'design', name: 'Design', icon: Palette },
-  { id: 'blockchain', name: 'Blockchain', icon: Code },
+  { id: 'Web Development', name: 'Web Apps', icon: Code },
+  { id: 'AI/ML', name: 'AI/ML', icon: Code },
+  { id: 'Design', name: 'Design', icon: Palette },
+  { id: 'Hardware', name: 'Hardware', icon: Code },
 ]
 
 export default function Projects() {
@@ -96,6 +74,8 @@ export default function Projects() {
 
   return (
     <section id="projects" className="section-padding relative overflow-hidden">
+      {/* Fireflies Animation */}
+      <Fireflies />
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-10" />
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 rounded-full blur-3xl" />
@@ -114,9 +94,10 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl font-tusker font-bold mb-6"
+            className="text-6xl md:text-7xl font-tusker font-normal mx-auto mb-6 sm:mb-8"
+            style={{ color: 'rgb(255,238,218)' }}
           >
-            <span className="gradient-text">Featured Projects</span>
+            My Projects
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -127,6 +108,7 @@ export default function Projects() {
           >
             A showcase of my latest work, demonstrating creativity, technical skills, and problem-solving abilities
           </motion.p>
+          <div className="w-32 sm:w-48 lg:w-64 h-1 bg-gradient-to-r from-transparent via-[rgb(255,238,218)] to-transparent mx-auto mt-6 sm:mt-8 animate-pulse"></div>
         </motion.div>
 
         {/* Category Filters */}
@@ -134,7 +116,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-6 mb-12"
         >
           {categories.map((category, index) => (
             <motion.button
@@ -145,15 +127,14 @@ export default function Projects() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-gradient-to-r from-neon-blue to-neon-purple'
-                  : 'glass-effect hover:neon-glow'
-              }`}
-              style={{ color: 'rgb(255,238,218)' }}
+              className={`font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-sm text-lg
+                ${activeCategory === category.id
+                  ? 'bg-[#FFEDDA] text-black'
+                  : 'border border-[#FFEDDA] text-[#FFEDDA] bg-transparent hover:bg-[#FFEDDA] hover:text-black'}
+              `}
+              style={{ fontFamily: 'inherit' }}
             >
-              <category.icon className="w-4 h-4" />
-              <span>{category.name}</span>
+              {category.name}
             </motion.button>
           ))}
         </motion.div>
@@ -171,93 +152,63 @@ export default function Projects() {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-xl glass-effect hover:neon-glow transition-all duration-500"
+                whileHover={{ y: -8, boxShadow: '0 0 32px 8px rgba(255,238,218,0.5)' }}
+                className="group flex flex-col bg-white/5 rounded-2xl glass-effect border border-white/20 overflow-hidden shadow-lg transition-all duration-500 hover:shadow-[0_0_32px_8px_rgba(255,238,218,0.5)]"
               >
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
+                {/* Project Image + Category Badge */}
+                <div className="relative">
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={600}
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    height={340}
+                    className="w-full h-48 object-cover rounded-t-2xl"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent" />
-                  
-                  {/* Featured Badge */}
-                  {project.featured && (
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full text-xs font-bold" style={{ color: 'rgb(255,238,218)' }}>
-                      Featured
-                    </div>
-                  )}
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-dark-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <motion.a
-                      href={project.liveUrl}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-3 rounded-full glass-effect hover:neon-glow transition-all duration-300"
-                    >
-                      <ExternalLink className="w-5 h-5" style={{ color: 'rgb(255,238,218)' }} />
-                    </motion.a>
-                    <motion.a
-                      href={project.githubUrl}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-3 rounded-full glass-effect hover:neon-glow transition-all duration-300"
-                    >
-                      <Github className="w-5 h-5" style={{ color: 'rgb(255,238,218)' }} />
-                    </motion.a>
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-custom-cream border border-dark-700 rounded-full text-xs font-bold shadow-md" style={{ color: 'rgb(0,0,0)' }}>
+                    {project.category}
                   </div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300" style={{ color: 'rgb(255,238,218)' }}>
+                <div className="flex flex-col flex-1 p-6">
+                  <h3 className="text-2xl font-bold mb-2" style={{ color: 'rgb(255,238,218)' }}>
                     {project.title}
                   </h3>
-                  <p className="text-sm mb-4 leading-relaxed" style={{ color: 'rgb(255,238,218)' }}>
+                  <p className="text-sm mb-4 leading-relaxed" style={{ color: 'rgb(205,188,168)' }}>
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-dark-700 text-xs rounded-full font-mono"
-                style={{ color: 'rgb(255,238,218)' }}
+                        className="px-3 py-1 border border-[rgb(255,238,218)]/30 text-[rgb(255,238,218)] bg-[rgb(255,238,218)]/10 hover:bg-[rgb(255,238,218)]/20 text-xs rounded-full font-neue transition-all duration-300 group-hover:scale-110 group-hover:bg-[rgb(255,238,218)]/40 group-hover:text-dark-900"
+                        style={{ color: 'rgb(255,238,218)' }}
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  {/* Project Links */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex space-x-3">
-                      <a
-                        href={project.liveUrl}
-                        className="flex items-center space-x-1 transition-colors duration-300 text-sm"
-                        style={{ color: 'rgb(255,238,218)' }}
-                      >
-                        <Eye className="w-4 h-4" />
-                        <span>Live Demo</span>
+                  {/* View on GitHub Button */}
+                  <div className="mt-auto">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-dark-800 border-2 border-dark-600 rounded-xl font-semibold text-base transition-all duration-300 hover:bg-dark-700 hover:scale-[1.03] shadow-md"
+                      style={{ color: 'rgb(0,0,0)', background: 'rgb(255,238,218)' }}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.479C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+                        </svg>
+                        View on GitHub
                       </a>
-                      <a
-                        href={project.githubUrl}
-                        className="flex items-center space-x-1 transition-colors duration-300 text-sm"
-                        style={{ color: 'rgb(255,238,218)' }}
-                      >
-                        <Code className="w-4 h-4" />
-                        <span>Code</span>
-                      </a>
-                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -265,25 +216,39 @@ export default function Projects() {
           </motion.div>
         </AnimatePresence>
 
-        {/* View More Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 1.2 }}
-          className="text-center mt-12"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border-2 font-semibold rounded-full transition-all duration-300"
-            style={{ 
-              borderColor: 'rgb(255,238,218)', 
-              color: 'rgb(255,238,218)' 
-            }}
-          >
-            View All Projects
-          </motion.button>
-        </motion.div>
+        {/* Stats & Call to Action Section */}
+        <section className="my-[400px] flex flex-col items-center w-full">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl md:text-7xl font-tusker font-normal text-center mb-12 sm:mb-16" style={{ color: '#FFEDDA' }}>
+            Project Statistics
+          </h2>
+          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-20">
+            <div className="flex flex-col items-center">
+              <span className="text-5xl md:text-6xl font-tusker font-normal" style={{ color: '#FFEDDA' }}>20+</span>
+              <span className="mt-4 text-lg md:text-base opacity-80 text-center  " style={{ color: '#FFEDDA' }}>Projects Completed</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-5xl md:text-6xl font-tusker font-normal" style={{ color: '#FFEDDA' }}>15+</span>
+              <span className="mt-4 text-lg md:text-base opacity-80 text-center" style={{ color: '#FFEDDA' }}>Technologies Used</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-5xl md:text-6xl font-tusker font-normal" style={{ color: '#FFEDDA' }}>3+</span>
+              <span className="mt-4 text-lg md:text-base opacity-80 text-center" style={{ color: '#FFEDDA' }}>Years Experience</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-5xl md:text-6xl font-tusker font-normal" style={{ color: '#FFEDDA' }}>100%</span>
+              <span className="mt-4 text-lg md:text-base opacity-80 text-center" style={{ color: '#FFEDDA' }}>Client Satisfaction</span>
+            </div>
+          </div>
+          <h3 className="text-5xl md:text-6xl font-tusker font-normal text-center mb-8" style={{ color: '#FFEDDA' }}>
+            Ready to Start a Project?
+          </h3>
+          <p className="text-xl md:text-xl text-center mb-10" style={{ color: '#FFEDDA' }}>
+            Let's work together to bring your ideas to life with cutting-edge technology and innovative solutions.
+          </p>
+          <a href="#contact" className="inline-block px-10 py-5 rounded-full bg-[#FFEDDA] text-black font-bold text-xl shadow-md transition-all duration-300 hover:bg-white/90">
+            Get In Touch
+          </a>
+        </section>
       </div>
     </section>
   )

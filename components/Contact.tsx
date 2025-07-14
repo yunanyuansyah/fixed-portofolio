@@ -94,7 +94,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-5xl font-tusker font-bold mb-6"
           >
-            <span className="gradient-text">Get In Touch</span>
+            <span className="gradient-text">Let's Connect</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}

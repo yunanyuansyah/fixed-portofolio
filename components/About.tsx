@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Fireflies from './Fireflies'
 
 export default function About() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
@@ -9,52 +10,7 @@ export default function About() {
   return (
     <section id="about" className="section-padding relative overflow-hidden">
       {/* Fireflies Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {Array.from({ length: 18 }).map((_, i) => {
-          const duration = 5 + Math.random() * 4;
-          const delay = Math.random() * 3;
-          const moveX = Math.random() * 120 - 60;
-          const moveY = Math.random() * 120 - 60;
-          const scale1 = 0.7 + Math.random() * 0.6;
-          const scale2 = 0.7 + Math.random() * 0.6;
-          return (
-            <div
-              key={i}
-              className="firefly"
-              style={{
-                position: 'absolute',
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${4 + Math.random() * 4}px`,
-                height: `${4 + Math.random() * 4}px`,
-                borderRadius: '50%',
-                background: '#ffe066',
-                opacity: 0.8 + Math.random() * 0.2,
-                boxShadow: '0 0 4px 1px #ffe066',
-                filter: 'drop-shadow(0 0 4px #ffe066)',
-                animation: `firefly-move-${i} ${duration}s ease-in-out ${delay}s infinite alternate`,
-                zIndex: 0,
-              }}
-            />
-          )
-        })}
-        <style>{`
-          ${Array.from({ length: 18 }).map((_, i) => {
-            const moveX = Math.random() * 120 - 60;
-            const moveY = Math.random() * 120 - 60;
-            const scale1 = 0.7 + Math.random() * 0.6;
-            const scale2 = 0.7 + Math.random() * 0.6;
-            return `
-              @keyframes firefly-move-${i} {
-                0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-                30% { transform: translate(${moveX / 2}px, ${moveY / 2}px) scale(${scale1}); opacity: 1; }
-                70% { transform: translate(${-moveX / 2}px, ${-moveY / 2}px) scale(${scale2}); opacity: 0.9; }
-                100% { transform: translate(${moveX}px, ${moveY}px) scale(1); opacity: 0.8; }
-              }
-            `;
-          }).join('')}
-        `}</style>
-      </div>
+      <Fireflies />
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-10" />
 
@@ -71,7 +27,7 @@ export default function About() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-6xl md:text-7xl font-tusker font-normal mb-4"
+            className="text-6xl md:text-7xl lg:text-8xl font-tusker font-normal mx-auto mb-6 sm:mb-8"
             style={{ color: 'rgb(255,238,218)' }}
           >
             About Me
@@ -95,7 +51,7 @@ export default function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <h3 className="text-4xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
+            <h3 className="text-5xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
               My Journey
             </h3>
             <div className="space-y-6 text-lg leading-relaxed" style={{ color: 'rgb(255,238,218)' }}>
@@ -116,27 +72,32 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="rounded-2xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 20px 40px rgba(255, 238, 218, 0.3)",
+              transition: { duration: 0.3 }
+            }}
+            className="rounded-2xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg cursor-pointer transform transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-lg"
           >
-            <h4 className="text-2xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
+            <h4 className="text-2xl font-neue font-bold mb-6" style={{ color: 'rgb(255,238,218)' }}>
               Quick Facts
             </h4>
             <ul className="space-y-4 text-lg" style={{ color: 'rgb(255,238,218)' }}>
-              <li className="flex items-center gap-3">
-                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2" />
-                <span className="font-semibold">Electrical Engineering Student</span>
+              <li className="flex items-center gap-3 group">
+                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2 group-hover:scale-125 transition-transform duration-200" />
+                <span className="font-normal group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Electrical Engineering Student</span>
               </li>
-              <li className="flex items-center gap-3">
-                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2" />
-                <span className="font-semibold">Hardware & Software Engineer</span>
+              <li className="flex items-center gap-3 group">
+                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2 group-hover:scale-125 transition-transform duration-200" />
+                <span className="font-normal group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Hardware & Software Engineer</span>
               </li>
-              <li className="flex items-center gap-3">
-                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2" />
-                <span className="font-semibold">Artificial Intelligence Engineer</span>
+              <li className="flex items-center gap-3 group">
+                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2 group-hover:scale-125 transition-transform duration-200" />
+                <span className="font-normal group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Artificial Intelligence Engineer</span>
               </li>
-              <li className="flex items-center gap-3">
-                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2" />
-                <span className="font-semibold">Control & Automation Systems Engineer</span>
+              <li className="flex items-center gap-3 group">
+                <span className="inline-block w-3 h-3 rounded-full bg-[rgb(255,238,218)] mr-2 group-hover:scale-125 transition-transform duration-200" />
+                <span className="font-normal group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Control & Automation Systems Engineer</span>
               </li>
             </ul>
           </motion.div>
@@ -149,18 +110,25 @@ export default function About() {
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 1.0, duration: 0.8 }}
-            className="rounded-2xl  "
+            className="rounded-2xl"
           >
-            <h3 className="text-3xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
+            <h3 className="text-5xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
               Education
             </h3>
             <div className="space-y-4 text-lg " style={{ color: 'rgb(255,238,218)' }}>
-              <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg">
-                <div className="font-bold text-xl mb-1">Electrical Engineering</div>
-                <div className="font-medium mb-1">Universitas Negeri Yogyakarta</div>
-                <div className="mb-2">2022 - Present</div>
-                <div className="font-medium">Learning on Control System, Automation Systems and Artificial Intelligence applications.</div>
-              </div>
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(255, 238, 218, 0.3)",
+                  transition: { duration: 0.3 }
+                }}
+                className="rounded-xl p-8 glass-effect backdrop-blur-md border shadow-lg cursor-pointer transform transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-lg"
+              >
+                <div className="font-bold text-xl mb-1 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Electrical Engineering</div>
+                <div className="font-medium mb-1 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Universitas Negeri Yogyakarta</div>
+                <div className="mb-2 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">2022 - Present</div>
+                <div className="font-medium group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Learning on Control System, Automation Systems and Artificial Intelligence applications.</div>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -171,71 +139,113 @@ export default function About() {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="rounded-2xl"
           >
-            <h3 className="text-3xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
+            <h3 className="text-5xl font-tusker mb-6" style={{ color: 'rgb(255,238,218)' }}>
               Experience
             </h3>
             <div className="space-y-4 text-lg" style={{ color: 'rgb(255,238,218)' }}>
               {/* Freelance Web Developer */}
-              <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg">
-                <div className="font-bold text-xl mb-1">Freelance Web Developer</div>
-                <div className="font-medium mb-1">Self-Employed</div>
-                <div className="mb-2">2023 - Present</div>
-                <div className="font-medium">Building responsive web applications using modern technologies like React, Next.js, and Node.js.</div>
-              </div>
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(255, 238, 218, 0.3)",
+                  transition: { duration: 0.3 }
+                }}
+                className="rounded-xl p-8 glass-effect backdrop-blur-md shadow-lg cursor-pointer transform transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-lg"
+              >
+                <div className="font-bold text-xl mb-1 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Freelance Web Developer</div>
+                <div className="font-medium mb-1 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Self-Employed</div>
+                <div className="mb-2 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">2023 - Present</div>
+                <div className="font-medium group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Building responsive web applications using modern technologies like React, Next.js, and Node.js.</div>
+              </motion.div>
               {/* AI Projects */}
-              <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg">
-                <div className="font-bold text-xl mb-1">Artificial Intelligence Projects</div>
-                <div className="font-medium mb-1">Personal Projects</div>
-                <div className="mb-2">2022 - Present</div>
-                <div className="font-medium">Developing AI models for computer vision and natural language processing applications.</div>
-              </div>
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(255, 238, 218, 0.3)",
+                  transition: { duration: 0.3 }
+                }}
+                className="rounded-xl p-8 glass-effect backdrop-blur-md  shadow-lg cursor-pointer transform transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-lg"
+              >
+                <div className="font-bold text-xl mb-1 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Artificial Intelligence Projects</div>
+                <div className="font-medium mb-1 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Personal Projects</div>
+                <div className="mb-2 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">2022 - Present</div>
+                <div className="font-medium group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Developing AI models for computer vision and natural language processing applications.</div>
+              </motion.div>
               {/* Hardware & Software Engineer */}
-              <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg">
-                <div className="font-bold text-xl mb-1">Hardware & Software Engineer</div>
-                <div className="font-medium mb-1">Personal Projects</div>
-                <div className="mb-2">2022 - Present</div>
-                <div className="font-medium">Building hardware and software solutions for various projects.</div>
-              </div>
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(255, 238, 218, 0.3)",
+                  transition: { duration: 0.3 }
+                }}
+                className="rounded-xl p-8 glass-effect backdrop-blur-md shadow-lg cursor-pointer transform transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-lg"
+              >
+                <div className="font-bold text-xl mb-1 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Hardware & Software Engineer</div>
+                <div className="font-medium mb-1 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Personal Projects</div>
+                <div className="mb-2 group-hover:text-[rgb(255,255,255)] transition-colors duration-200">2022 - Present</div>
+                <div className="font-medium group-hover:text-[rgb(255,255,255)] transition-colors duration-200">Building hardware and software solutions for various projects.</div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
 
         {/* My Values Section */}
         <div className="mt-24">
-          <h2 className="text-center text-5xl font-tusker mb-12" style={{ color: 'rgb(255,238,218)' }}>
+          <h2 className="text-center text-6xl font-tusker mb-12" style={{ color: 'rgb(255,238,218)' }}>
             My Values
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* Innovation */}
-            <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center">
-              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6">
+            <motion.div 
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(255, 238, 218, 0.3)",
+                transition: { duration: 0.3 }
+              }}
+              className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center cursor-pointer transform transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-lg"
+            >
+              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6 group-hover:scale-110 transition-transform duration-200">
                 <span className="text-4xl">💡</span>
               </div>
-              <div className="font-bold text-2xl mb-2" style={{ color: 'rgb(255,238,218)' }}>Innovation</div>
-              <div className="text-lg font-medium" style={{ color: 'rgb(255,238,218)' }}>
+              <div className="font-bold text-2xl mb-2 group-hover:text-[rgb(255,255,255)] transition-colors duration-200" style={{ color: 'rgb(255,238,218)' }}>Innovation</div>
+              <div className="text-lg font-medium group-hover:text-[rgb(255,255,255)] transition-colors duration-200" style={{ color: 'rgb(255,238,218)' }}>
                 Always exploring new technologies and approaches to solve complex problems creatively.
               </div>
-            </div>
+            </motion.div>
             {/* Excellence */}
-            <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center">
-              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6">
+            <motion.div 
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(255, 238, 218, 0.3)",
+                transition: { duration: 0.3 }
+              }}
+              className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center cursor-pointer transform transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-lg"
+            >
+              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6 group-hover:scale-110 transition-transform duration-200">
                 <span className="text-4xl">🎯</span>
               </div>
-              <div className="font-bold text-2xl mb-2" style={{ color: 'rgb(255,238,218)' }}>Excellence</div>
-              <div className="text-lg font-medium" style={{ color: 'rgb(255,238,218)' }}>
+              <div className="font-bold text-2xl mb-2 group-hover:text-[rgb(255,255,255)] transition-colors duration-200" style={{ color: 'rgb(255,238,218)' }}>Excellence</div>
+              <div className="text-lg font-medium group-hover:text-[rgb(255,255,255)] transition-colors duration-200" style={{ color: 'rgb(255,238,218)' }}>
                 Committed to delivering high-quality, well-tested, and maintainable code in every project.
               </div>
-            </div>
+            </motion.div>
             {/* Growth */}
-            <div className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center">
-              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6">
+            <motion.div 
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(255, 238, 218, 0.3)",
+                transition: { duration: 0.3 }
+              }}
+              className="rounded-xl p-8 glass-effect backdrop-blur-md bg-white/10 shadow-lg text-center flex flex-col items-center cursor-pointer transform transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-lg"
+            >
+              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[rgb(255,238,218)] mb-6 group-hover:scale-110 transition-transform duration-200">
                 <span className="text-4xl">🚀</span>
               </div>
-              <div className="font-bold text-2xl mb-2" style={{ color: 'rgb(255,238,218)' }}>Growth</div>
-              <div className="text-lg font-medium" style={{ color: 'rgb(255,238,218)' }}>
+              <div className="font-bold text-2xl mb-2 group-hover:text-[rgb(255,255,255)] transition-colors duration-200" style={{ color: 'rgb(255,238,218)' }}>Growth</div>
+              <div className="text-lg font-medium group-hover:text-[rgb(255,255,255)] transition-colors duration-200" style={{ color: 'rgb(255,238,218)' }}>
                 Continuously learning and improving skills to stay ahead in the rapidly evolving tech landscape.
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

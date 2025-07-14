@@ -16,6 +16,7 @@ import {
   Monitor,
   Layers
 } from 'lucide-react'
+import Fireflies from './Fireflies';
 
 const skillCategories = [
   {
@@ -61,12 +62,17 @@ const skillCategories = [
 ]
 
 const techStack = [
-  { name: 'React', icon: Cpu, color: 'text-blue-400' },
-  { name: 'TypeScript', icon: Terminal, color: 'text-blue-500' },
-  { name: 'Node.js', icon: Server, color: 'text-green-400' },
-  { name: 'Python', icon: Monitor, color: 'text-yellow-400' },
-  { name: 'Docker', icon: Layers, color: 'text-blue-500' },
-  { name: 'AWS', icon: Cloud, color: 'text-orange-400' },
+  { name: 'Python', icon: Monitor, color: 'from-yellow-400 to-orange-500', description: 'General purpose', tags: ['Python', 'Flask', 'Django', 'Scripting'] },
+  { name: 'TypeScript', icon: Terminal, color: 'from-blue-500 to-blue-600', description: 'Typed JavaScript', tags: ['TypeScript', 'TSX', 'Types', 'Generics'] },
+  { name: 'C/C++', icon: Layers, color: 'from-blue-500 to-blue-700', description: 'Programming language', tags: ['C', 'C++', 'Embedded Systems', 'Arduino', 'Raspberry Pi'] },
+  { name: 'Kotlin', icon: Layers, color: 'from-blue-500 to-blue-700', description: 'Programming language', tags: ['Kotlin', 'Android', 'Kotlin Multiplatform', 'Kotlin Native'] },
+  { name: 'TensorFlow', icon: Layers, color: 'from-blue-500 to-blue-700', description: 'Machine learning framework', tags: ['TensorFlow', 'Keras', 'PyTorch', 'ML', 'AI'] },
+  { name: 'Node.js', icon: Server, color: 'from-green-400 to-green-600', description: 'Backend development', tags: ['Node.js', 'Express', 'NPM', 'REST API'] },
+  { name: 'Docker', icon: Layers, color: 'from-blue-500 to-blue-700', description: 'Containerization', tags: ['Docker', 'Compose', 'Images', 'CI/CD'] },
+  { name: 'AWS', icon: Cloud, color: 'from-orange-400 to-yellow-500', description: 'Cloud platform', tags: ['AWS', 'EC2', 'S3', 'Lambda'] },
+  { name: 'Database', icon: Database, color: 'from-blue-400 to-indigo-600', description: 'Database management', tags: ['PostgreSQL', 'MongoDB', 'MySQL', 'SQL'] },
+  { name: 'Arduino & Raspberry', icon: Layers, color: 'from-blue-500 to-blue-700', description: 'Hardware development', tags: ['Arduino', 'ESP32', 'ESP8266', 'Raspberry Pi', 'Microcontrollers'] },
+  { name: 'UI/UX Design', icon: Layers, color: 'from-blue-500 to-blue-700', description: 'UI/UX Design', tags: ['Figma', 'Adobe XD', 'UI/UX', 'Prototyping'] },
 ]
 
 export default function Skills() {
@@ -77,6 +83,8 @@ export default function Skills() {
 
   return (
     <section id="skills" className="section-padding relative overflow-hidden">
+      {/* Fireflies Animation */}
+      <Fireflies />
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-10" />
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-r from-neon-purple/10 to-neon-pink/10 rounded-full blur-3xl" />
@@ -95,9 +103,10 @@ export default function Skills() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl font-tusker font-bold mb-6"
+            className="text-6xl md:text-7xl font-tusker font-normal mx-auto mb-6 sm:mb-8"
+            style={{ color: 'rgb(255,238,218)' }}
           >
-            <span className="gradient-text">Skills & Expertise</span>
+            Skills & Expertise
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -108,6 +117,7 @@ export default function Skills() {
           >
             A comprehensive toolkit of technologies and methodologies I use to bring ideas to life
           </motion.p>
+          <div className="w-32 sm:w-48 lg:w-64 h-1 bg-gradient-to-r from-transparent via-[rgb(255,238,218)] to-transparent mx-auto mt-6 sm:mt-8 animate-pulse"></div>
         </motion.div>
 
         {/* Tech Stack */}
@@ -117,78 +127,45 @@ export default function Skills() {
           transition={{ delay: 0.6 }}
           className="mb-16"
         >
-          <h3 className="text-2xl font-bold gradient-text text-center mb-8">
+          <h3 className="text-2xl font-bold font-neue text-[rgb(255,238,218)] text-center mb-8">
             Tech Stack
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {techStack.map((tech, index) => (
               <motion.div
                 key={tech.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.8 + index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center p-6 rounded-xl glass-effect hover:neon-glow transition-all duration-300"
+                transition={{ duration: 0.15, delay: 0 }}
+                whileHover={{ scale: 1.02, y: -2, boxShadow: '0 8px 32px rgba(0,0,0,0.35), 0 0 20px 0 rgba(255,238,218,0.7)', transition: { duration: 0.15, delay: 0 } }}
+                className="flex flex-col items-start p-4 rounded-2xl border border-white/20 glass-effect backdrop-blur-md shadow-lg relative min-h-[180px] max-w-sm w-full mx-auto"
               >
-                <tech.icon className={`w-12 h-12 mx-auto mb-3 ${tech.color}`} />
-                <div className="font-medium" style={{ color: 'rgb(255,238,218)' }}>{tech.name}</div>
+                <div className="flex items-center mb-4 w-full">
+                  <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${tech.color} flex items-center justify-center mr-4 shadow-md`}>
+                    <tech.icon className="w-7 h-7" style={{ color: '#fff' }} />
+                  </div>
+                  <div>
+                    <div className="font-bold text-xl text-white leading-tight">{tech.name}</div>
+                    <div className="text-base text-gray-300 opacity-80 -mt-1">{tech.description}</div>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3 mt-2">
+                  {tech.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-4 py-1 rounded-full border border-[rgb(255,238,218)]/30 text-sm text-[rgb(255,238,218)] bg-[rgb(255,238,218)]/10 hover:bg-[rgb(255,238,218)]/20 transition-all duration-300 backdrop-blur-sm shadow-sm"
+                      style={{ fontWeight: 500 }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Skills Categories */}
-        <div className="grid lg:grid-cols-2 gap-12">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, x: categoryIndex % 2 === 0 ? -50 : 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 1 + categoryIndex * 0.2, duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-lg flex items-center justify-center">
-                  <category.icon className="w-6 h-6" style={{ color: 'rgb(255,238,218)' }} />
-                </div>
-                <h3 className="text-2xl font-bold gradient-text">
-                  {category.title}
-                </h3>
-              </div>
-
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 1.2 + categoryIndex * 0.2 + skillIndex * 0.1 }}
-                    className="space-y-2"
-                  >
-                    <div className="flex justify-between items-center">
-                                      <span className="font-medium" style={{ color: 'rgb(255,238,218)' }}>{skill.name}</span>
-                <span className="font-mono text-sm" style={{ color: 'rgb(255,238,218)' }}>{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-dark-700 rounded-full h-2 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={inView ? { width: `${skill.level}%` } : {}}
-                        transition={{
-                          delay: 1.4 + categoryIndex * 0.2 + skillIndex * 0.1,
-                          duration: 1.5,
-                          ease: "easeOut"
-                        }}
-                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-full" />
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        
 
         {/* Additional Skills */}
         <motion.div
@@ -197,7 +174,7 @@ export default function Skills() {
           transition={{ delay: 1.8 }}
           className="mt-16"
         >
-          <h3 className="text-2xl font-bold gradient-text text-center mb-8">
+          <h3 className="text-2xl font-bold font-neue text-[rgb(255,238,218)] text-center mb-8">
             Additional Skills
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
