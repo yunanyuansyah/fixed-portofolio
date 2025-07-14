@@ -16,7 +16,7 @@ const projects = [
     category: 'Web Development',
     technologies: ['EJS', 'Express', 'Tailwind CSS', 'MongoDB'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/yunanyuansyah/sellandbuy-Marketplace',
     featured: true,
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     category: 'Hardware',
     technologies: ['Raspberry Pi', 'Webcam', 'Python', 'OpenCV' ,'Face Recognition', 'Firebase'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/yunanyuansyah/faceRec-lunexis',
   },
   {
     id: 3,

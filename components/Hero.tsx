@@ -190,7 +190,7 @@ export default function Hero() {
             className="flex items-center space-x-4"
           >
             {[
-              { icon: Github, href: '#', label: 'GitHub' },
+              { icon: Github, href: 'https://github.com/yunanyuansyah', label: 'GitHub' },
               { icon: Linkedin, href: '#', label: 'LinkedIn' },
             ].map((social, index) => (
               <motion.a
@@ -219,13 +219,13 @@ export default function Hero() {
       </div>
 
       {/* Bottom Right Content - Description and CTA Buttons */}
-      <div className="absolute bottom-8 right-8 z-20 max-w-3xl w-96 md:w-auto">
+      <div className="absolute bottom-8 right-8 md:justify-items-end z-20  w-96 md:w-auto ">
         {/* Description */}
         <motion.p
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-xl md:text-2xl lg:text-3xl mb-12 leading-relaxed text-right transition-all duration-300"
+          className="text-xl md:text-2xl lg:text-3xl md:max-w-sm lg:max-w-[700px] mb-12 leading-relaxed text-right transition-all duration-300 hidden md:block"
           style={{ color: 'rgb(255,238,218)' }}
           onMouseEnter={(e) => {
             e.currentTarget.style.textShadow = '0 0 20px rgba(255, 238, 218, 0.8)';
