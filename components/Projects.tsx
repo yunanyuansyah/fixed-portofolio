@@ -45,10 +45,10 @@ const projects = [
     title: 'Portfolio Website',
     description: 'A futuristic portfolio website with 3D animations, interactive elements, and modern design principles.',
     image: '/images/projects/portfolio.png',
-    category: 'Design',
+    category: 'Web Development',
     technologies: ['Three.js', 'React', 'Framer Motion', 'GSAP'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/yunanyuansyah/fixed-portofolio',
     featured: false,
   },
   
