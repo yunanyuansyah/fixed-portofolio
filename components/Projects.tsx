@@ -23,7 +23,7 @@ const projects = [
     id: 2,
     title: 'Smart Face Recognition Door Lock System',
     description: 'A face recognition door lock system built with Raspberry Pi and a Webcam',
-    image: '/images/projects/face-recognition.jpg',
+    image: '/images/projects/lunexis.png',
     category: 'Hardware',
     technologies: ['Raspberry Pi', 'Webcam', 'Python', 'OpenCV' ,'Face Recognition', 'Firebase'],
     liveUrl: '#',
@@ -31,26 +31,27 @@ const projects = [
   },
   {
     id: 3,
+    title: 'Receipt Web App',
+    description: 'A web application for managing and storing receipts, featuring OCR and cloud storage integration.',
+    image: '/images/projects/listpembelian.png',
+    category: 'Web Development',
+    technologies: ['React', 'Node.js', 'Express', 'PostgreSQL'],
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: true,
+  },
+  {
+    id: 4,
     title: 'Portfolio Website',
     description: 'A futuristic portfolio website with 3D animations, interactive elements, and modern design principles.',
-    image: '/images/projects/portfolio.jpg',
+    image: '/images/projects/portfolio.png',
     category: 'Design',
     technologies: ['Three.js', 'React', 'Framer Motion', 'GSAP'],
     liveUrl: '#',
     githubUrl: '#',
     featured: false,
   },
-  {
-    id: 4,
-    title: 'AI Chat Application',
-    description: 'An intelligent chat application powered by OpenAI, featuring real-time messaging and AI-powered responses.',
-    image: '/images/projects/ai-chat.jpg',
-    category: 'AI/ML',
-    technologies: ['React', 'Node.js', 'OpenAI API', 'Socket.io'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: true,
-  },
+  
 ]
 
 const categories = [

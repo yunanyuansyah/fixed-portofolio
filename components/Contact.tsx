@@ -71,18 +71,28 @@ export default function Contact() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    const form = e.target as HTMLFormElement;
+    const formDataToSend = new FormData(form);
 
-    // Show success message
-    toast.success('Message sent successfully! I\'ll get back to you soon.')
-    
-    // Reset form
-    setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' })
-    setIsSubmitting(false)
+    try {
+      const response = await fetch('https://formspree.io/f/xovlapey', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: { 'Accept': 'application/json' },
+      });
+      if (response.ok) {
+        toast.success('Message sent successfully! I\'ll get back to you soon.');
+        setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' });
+      } else {
+        toast.error('Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      toast.error('Failed to send message. Please try again.');
+    }
+    setIsSubmitting(false);
   }
 
   return (

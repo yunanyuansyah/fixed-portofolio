@@ -116,7 +116,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-8xl md:text-9xl lg:text-[10rem] font-tusker font-normal transition-all duration-300"
+            className="text-7xl md:text-9xl lg:text-[10rem] font-tusker font-normal transition-all duration-300"
             style={{ color: 'rgb(255,238,218)' }}
             // Tambahkan animasi glow acak
             whileHover={{}}
@@ -150,7 +150,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-8xl md:text-9xl lg:text-[10rem] font-tusker font-normal mb-10 transition-all duration-300"
+            className="text-7xl md:text-9xl lg:text-[10rem] font-tusker font-normal mb-10 transition-all duration-300"
             style={{ color: 'rgb(255,238,218)' }}
           >
             <motion.span
@@ -187,7 +187,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="flex items-center space-x-4"
+            className="hidden md:flex items-center space-x-4"
           >
             {[
               { icon: Github, href: 'https://github.com/yunanyuansyah', label: 'GitHub' },
@@ -247,7 +247,30 @@ export default function Hero() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-5 text-lg font-semibold rounded-full flex items-center space-x-3 transition-all duration-300"
+            onClick={scrollToContact}
+            className="flex md:hidden px-[20px] py-[10px] md:px-10 md:py-5 border-2 text-[10px] md:text-lg font-semibold rounded-full transition-all duration-300 flex items-center space-x-3"
+            style={{
+              borderColor: 'rgb(255,238,218)',
+              color: 'rgb(255,238,218)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgb(255,238,218)';
+              e.currentTarget.style.color = '#0f172a';
+              e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 238, 218, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = 'rgb(255,238,218)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            <span>CONTACT ME</span>
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-[20px] py-[10px] md:px-10 md:py-5 text-[10px] md:text-lg font-semibold rounded-full flex items-center space-x-3 transition-all duration-300"
             style={{
               backgroundColor: 'rgb(255,238,218)',
               color: '#0f172a'
@@ -259,7 +282,7 @@ export default function Hero() {
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            <Download className="w-6 h-6" />
+            <Download className="w-5 h-5 md:w-7 md:h-7" />
             <span>DOWNLOAD CV</span>
           </motion.button>
           
@@ -267,7 +290,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToContact}
-            className="px-10 py-5 border-2 text-lg font-semibold rounded-full transition-all duration-300 flex items-center space-x-3"
+            className="hidden md:flex px-[20px] py-[10px] md:px-10 md:py-5 border-2 text-sm md:text-lg font-semibold rounded-full transition-all duration-300 flex items-center space-x-3"
             style={{
               borderColor: 'rgb(255,238,218)',
               color: 'rgb(255,238,218)'
@@ -293,7 +316,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
+        className="hidden md:block absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
       >
         <motion.button
           onClick={scrollToContact}

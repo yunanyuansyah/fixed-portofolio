@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title: 'My Portfolio - Creative Developer',
   description: 'A futuristic portfolio showcasing creative development, design, and innovation',
   keywords: ['portfolio', 'developer', 'designer', 'creative', 'futuristic', 'next.js'],
-  authors: [{ name: 'Your Name' }],
-  creator: 'Your Name',
+  authors: [{ name: 'Yunan Yuansyah' }],
+  creator: 'Yunan Yuansyah',
   openGraph: {
     title: 'My Portfolio - Creative Developer',
     description: 'A futuristic portfolio showcasing creative development, design, and innovation',
@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'My Portfolio - Creative Developer',
     description: 'A futuristic portfolio showcasing creative development, design, and innovation',
+  },
+  icons: {
+    icon: './favicon.ico',
   },
 }
 
