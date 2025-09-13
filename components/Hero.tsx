@@ -267,7 +267,9 @@ export default function Hero() {
             <span>CONTACT ME</span>
           </motion.button>
 
-          <motion.button
+          <motion.a
+            href="/cv.pdf"
+            download
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-[20px] py-[10px] md:px-10 md:py-5 text-[10px] md:text-lg font-semibold rounded-full flex items-center space-x-3 transition-all duration-300"
@@ -284,7 +286,7 @@ export default function Hero() {
           >
             <Download className="w-5 h-5 md:w-7 md:h-7" />
             <span>DOWNLOAD CV</span>
-          </motion.button>
+          </motion.a>
           
           <motion.button
             whileHover={{ scale: 1.05 }}
