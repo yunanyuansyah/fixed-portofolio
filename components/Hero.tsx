@@ -191,7 +191,7 @@ export default function Hero() {
           >
             {[
               { icon: Github, href: 'https://github.com/yunanyuansyah', label: 'GitHub' },
-              { icon: Linkedin, href: '#', label: 'LinkedIn' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/yunanyuansyah/', label: 'LinkedIn' },
             ].map((social, index) => (
               <motion.a
                 key={social.label}
