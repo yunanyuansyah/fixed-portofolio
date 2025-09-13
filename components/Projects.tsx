@@ -37,7 +37,7 @@ const projects = [
     category: 'Web Development',
     technologies: ['React', 'Node.js', 'Express', 'PostgreSQL'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/yunanyuansyah/listPembelian',
     featured: true,
   },
   {
