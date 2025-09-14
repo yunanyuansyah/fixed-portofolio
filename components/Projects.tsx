@@ -51,6 +51,17 @@ const projects = [
     githubUrl: 'https://github.com/yunanyuansyah/fixed-portofolio',
     featured: false,
   },
+  {
+    id: 5,
+    title: 'Wallet Mobile App',
+    description: 'A mobile app for managing personal finances, featuring expense tracking.',
+    image: '/images/projects/wallet.png',
+    category: 'Mobile Development',
+    technologies: ['Flutter', 'Firebase', 'Dart'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/yunanyuansyah/kawaii_wallet',
+    featured: false,
+  },
   
 ]
 
