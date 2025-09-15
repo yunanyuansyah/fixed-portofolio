@@ -6,10 +6,10 @@ export default function LoadingScreen({ onFinish }: { onFinish?: () => void }) {
   const [progress, setProgress] = useState(0)
   useEffect(() => {
     if (progress < 100) {
-      const timeout = setTimeout(() => setProgress(progress + Math.floor(Math.random() * 5) + 1), 40 + Math.random() * 60)
+      const timeout = setTimeout(() => setProgress(Math.min(progress + Math.floor(Math.random() * 4 ) + 1, 100)), 40 + Math.random() * 60)
       return () => clearTimeout(timeout)
-    } else if (onFinish) {
-      setTimeout(onFinish, 400)
+    } else if (progress >= 100 && onFinish) {
+      setTimeout(onFinish, 100)
     }
   }, [progress, onFinish])
 
