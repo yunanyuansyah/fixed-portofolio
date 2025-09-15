@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { TypeAnimation } from 'react-type-animation'
+import Image from 'next/image'
 import Fireflies from './Fireflies'
 
 export default function About() {
@@ -15,6 +17,7 @@ export default function About() {
       <div className="absolute inset-0 grid-pattern opacity-10" />
 
       <div className="container-custom relative z-10">
+
         {/* Section Header */}
         <motion.div
           ref={ref}
@@ -43,6 +46,78 @@ export default function About() {
           </motion.p>
           <div className="w-32 sm:w-48 lg:w-64 h-1 bg-gradient-to-r from-transparent via-[rgb(255,238,218)] to-transparent mx-auto mt-6 sm:mt-8 animate-pulse"></div>
         </motion.div>
+
+        {/* Main Content - Centered (Empty for now) */}
+      <div className="relative z-20 max-w-full flex-col my-28 ">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto "
+        >
+          {/* Profile Image - Uncomment jika Anda ingin menambahkan foto profil */}
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
+            className="mb-8"
+          >
+            <Image 
+              src="/images/profile/avatar.jpg" 
+              alt="Your Name" 
+              width={300} 
+              height={300} 
+              className="rounded-full aspect-square object-cover border-2 border-[rgb(255,238,218)] mx-auto shadow-2xl"
+              priority
+            />
+          </motion.div>
+        </motion.div>
+
+        <motion.h1
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className=" text-center text-5xl md:text-5xl lg:text-8xl font-tusker font-normal transition-all duration-300"
+            style={{ color: 'rgb(255,238,218)' }}
+            // Tambahkan animasi glow acak
+            whileHover={{}}
+          >
+            <motion.span
+             
+              initial={{ textShadow: '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)' }}
+              animate={{
+                textShadow: [
+                  '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)',
+                  '0 0 60px rgba(255,238,218,1), 0 0 120px rgba(255,238,218,0.7)',
+                  '0 0 20px rgba(255,238,218,0.4), 0 0 40px rgba(255,238,218,0.2)',
+                  '0 0 50px rgba(255,238,218,0.9), 0 0 100px rgba(255,238,218,0.5)',
+                  '0 0 30px rgba(255,238,218,0.7), 0 0 60px rgba(255,238,218,0.3)'
+                ]
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 2 + Math.random() * 2,
+                repeatType: 'mirror',
+                ease: 'easeInOut',
+                times: [0, 0.2, 0.5, 0.8, 1]
+              }}
+            >
+               HELLO , I AM
+            </motion.span>
+            <motion.span 
+              className="relative ml-6 text-7xl md:text-9xl lg:text-[10rem] font-sunny font-bold" 
+              style={{ color: 'rgb(255,238,218)' }}
+              ref={ref}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              YUNAN
+            </motion.span>
+          </motion.h1>
+      </div>
+
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Left Column - My Journey */}

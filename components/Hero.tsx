@@ -72,34 +72,7 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Main Content - Centered (Empty for now) */}
-      <div ref={containerRef} className="container-custom relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
-          {/* Profile Image - Uncomment jika Anda ingin menambahkan foto profil */}
-          {/* 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.8 }}
-            className="mb-8"
-          >
-            <Image 
-              src="/images/profile/avatar.jpg" 
-              alt="Your Name" 
-              width={200} 
-              height={200} 
-              className="rounded-full border-4 border-neon-blue mx-auto shadow-2xl"
-              priority
-            />
-          </motion.div>
-          */}
-        </motion.div>
-      </div>
+      
 
       {/* Bottom Left Content - Greeting, Name, Subtitle, and Social Links */}
       <div className="absolute bottom-8 left-8 z-20 max-w-md">
